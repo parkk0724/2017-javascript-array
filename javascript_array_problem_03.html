@@ -3,8 +3,32 @@
 <head>
     <script type="text/javascript">
         function minimum_cost(houses) {
-          var result = 0;
-          // TODO : 여기에 여러분이 직접 코딩을 해주세요.
+          var result = 100000;
+	  var sum = 0;
+	  var min = 100000;
+	  var n = 0;
+	  for (i=0; i<3; i++) {
+		sum += houses[0][i]
+		n = i
+		console.log(sum,houses[0][i],n)
+	  	for (j=1; j<houses.length; j++){
+			for (k=0; k<3; k++){
+				if (k == n) {
+				console.log(k,n)
+				} else if (min < houses[j][k]){
+					min = houses[j][k]
+					n = k
+					console.log(min,n)
+				}
+			}
+			sum += min
+			min = 100000
+			console.log(sum,min)
+		}
+		result = (result < sum) ? result : sum
+		sum = 0
+		console.log(result,sum)
+	  }
           return result;
         }
         var test_case_01 = [[26, 40, 83], [49, 60, 57], [13, 89, 99]];

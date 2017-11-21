@@ -3,9 +3,26 @@
 <head>
     <script type="text/javascript">
         function check_string() {
-          // TODO : 여기에 여러분이 직접 코딩을 해주세요.          
-          return true;
-        }
+	a = arguments[0];
+	t = a.split("");
+	var cnt1 = 0;
+	var cnt2 = 0;
+	if (t[0] == ")")
+	  return false;
+	for (i=0; i<t.length; i++){
+		if (t[i] == "(")
+		cnt1 += 1;
+		else 
+		cnt2 += 1;
+	}
+	if (cnt1 == cnt2){
+          console.log(a, cnt1, cnt2, true);
+	  return true;	
+	}else {
+	  console.log(a, cnt1, cnt2, false);	
+	  return false;
+         }
+	}
 
         expect(check_string('(())())'), false);
         expect(check_string('(((()())()'), false);
@@ -25,3 +42,5 @@
 <body>
 </body>
 </html>
+
+
